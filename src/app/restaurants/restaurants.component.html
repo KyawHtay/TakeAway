@@ -1,0 +1,25 @@
+<input type="text" [(ngModel)]="postcode" (keyup.enter)="getRestaturants()" /> 
+Entered value is:  {{postcode}} 
+<div *ngIf="resturants$">
+    <ul>
+        <li *ngFor="let resturant of resturants$.Restaurants">
+
+            <a href="{{resturant.Url}}">{{resturant.Name}}</a>
+            <div>Borough: {{ resturants$.Area }}</div>
+            <div>City: {{ resturant.Address.City }}</div>
+            <div>Post Code: {{resturant.Address.Postcode}}</div>
+            <ngb-rating [max]="6" [(rate)]="resturant.Rating.StarRating" [readonly]="true"></ngb-rating>
+            <div>Rating: {{resturant.Rating.StarRating}}</div>
+        <ul>
+            <u>Cusines:</u>
+            <li *ngFor="let cusine of toArray(resturant.Cuisines)">
+                    <div *ngIf="cusine.Name!='Low Delivery Fee'">
+                        <li colspan="6"><strong>{{cusine.Name}}</strong></li>
+                    </div>
+            </li>
+
+        </ul>
+        </li>
+
+    </ul>
+</div>

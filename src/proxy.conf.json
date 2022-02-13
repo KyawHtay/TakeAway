@@ -1,0 +1,8 @@
+{
+    "/restaurants": {
+        "target": "https://uk.api.just-eat.io",
+        "secure": true,
+        "changeOrigin":true,
+        "logLevel": "debug"
+    }
+}
